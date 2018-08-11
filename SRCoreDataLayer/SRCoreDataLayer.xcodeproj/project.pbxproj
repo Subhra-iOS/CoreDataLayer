@@ -14,6 +14,12 @@
 		CD11F297211F063A0018AFC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD11F296211F063A0018AFC8 /* Assets.xcassets */; };
 		CD11F29A211F063A0018AFC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD11F298211F063A0018AFC8 /* LaunchScreen.storyboard */; };
 		CD11F2A5211F063B0018AFC8 /* SRCoreDataLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD11F2A4211F063B0018AFC8 /* SRCoreDataLayerTests.swift */; };
+		CD4CAE63211F3F400076BC6D /* SRCoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE62211F3F400076BC6D /* SRCoreDataStackManager.swift */; };
+		CD4CAE6B211F45190076BC6D /* UserDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE69211F45190076BC6D /* UserDB+CoreDataClass.swift */; };
+		CD4CAE6C211F45190076BC6D /* UserDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE6A211F45190076BC6D /* UserDB+CoreDataProperties.swift */; };
+		CD4CAE76211F61120076BC6D /* NSManagedObject+Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */; };
+		CD4CAE77211F61120076BC6D /* NSManagedObjectContext+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE74211F61110076BC6D /* NSManagedObjectContext+Save.swift */; };
+		CD4CAE78211F61120076BC6D /* NSManagedObjectContext+AsyncSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE75211F61110076BC6D /* NSManagedObjectContext+AsyncSave.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,12 @@
 		CD11F2A0211F063B0018AFC8 /* SRCoreDataLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRCoreDataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD11F2A4211F063B0018AFC8 /* SRCoreDataLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCoreDataLayerTests.swift; sourceTree = "<group>"; };
 		CD11F2A6211F063B0018AFC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD4CAE62211F3F400076BC6D /* SRCoreDataStackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCoreDataStackManager.swift; sourceTree = "<group>"; };
+		CD4CAE69211F45190076BC6D /* UserDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDB+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CD4CAE6A211F45190076BC6D /* UserDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Fetch.swift"; sourceTree = "<group>"; };
+		CD4CAE74211F61110076BC6D /* NSManagedObjectContext+Save.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Save.swift"; sourceTree = "<group>"; };
+		CD4CAE75211F61110076BC6D /* NSManagedObjectContext+AsyncSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+AsyncSave.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +91,9 @@
 		CD11F28B211F062F0018AFC8 /* SRCoreDataLayer */ = {
 			isa = PBXGroup;
 			children = (
-				CD11F28C211F062F0018AFC8 /* AppDelegate.swift */,
-				CD11F28E211F062F0018AFC8 /* ViewController.swift */,
-				CD11F290211F062F0018AFC8 /* Main.storyboard */,
-				CD11F296211F063A0018AFC8 /* Assets.xcassets */,
-				CD11F298211F063A0018AFC8 /* LaunchScreen.storyboard */,
-				CD11F29B211F063A0018AFC8 /* Info.plist */,
-				CD11F293211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodeld */,
+				CD4CAE5D211F3DEA0076BC6D /* SRCoreDataModule */,
+				CD4CAE5C211F3D8B0076BC6D /* Application */,
+				CD4CAE5E211F3E050076BC6D /* CoreDataModel */,
 			);
 			path = SRCoreDataLayer;
 			sourceTree = "<group>";
@@ -97,6 +105,88 @@
 				CD11F2A6211F063B0018AFC8 /* Info.plist */,
 			);
 			path = SRCoreDataLayerTests;
+			sourceTree = "<group>";
+		};
+		CD4CAE5C211F3D8B0076BC6D /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CD11F28C211F062F0018AFC8 /* AppDelegate.swift */,
+				CD11F28E211F062F0018AFC8 /* ViewController.swift */,
+				CD11F290211F062F0018AFC8 /* Main.storyboard */,
+				CD11F296211F063A0018AFC8 /* Assets.xcassets */,
+				CD11F29B211F063A0018AFC8 /* Info.plist */,
+				CD11F298211F063A0018AFC8 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		CD4CAE5D211F3DEA0076BC6D /* SRCoreDataModule */ = {
+			isa = PBXGroup;
+			children = (
+				CD4CAE61211F3F1F0076BC6D /* SRCoreDataExtension */,
+				CD4CAE60211F3F070076BC6D /* SRCoreDataMigration */,
+				CD4CAE5F211F3EF80076BC6D /* SRCoreDataStack */,
+			);
+			path = SRCoreDataModule;
+			sourceTree = "<group>";
+		};
+		CD4CAE5E211F3E050076BC6D /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				CD4CAE64211F44220076BC6D /* NSManageObjectClass */,
+				CD11F293211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodeld */,
+			);
+			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
+		CD4CAE5F211F3EF80076BC6D /* SRCoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				CD4CAE72211F60F20076BC6D /* NSManageObject+Extension */,
+				CD4CAE71211F60E00076BC6D /* SRCoreDataStackManager */,
+			);
+			path = SRCoreDataStack;
+			sourceTree = "<group>";
+		};
+		CD4CAE60211F3F070076BC6D /* SRCoreDataMigration */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SRCoreDataMigration;
+			sourceTree = "<group>";
+		};
+		CD4CAE61211F3F1F0076BC6D /* SRCoreDataExtension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SRCoreDataExtension;
+			sourceTree = "<group>";
+		};
+		CD4CAE64211F44220076BC6D /* NSManageObjectClass */ = {
+			isa = PBXGroup;
+			children = (
+				CD4CAE69211F45190076BC6D /* UserDB+CoreDataClass.swift */,
+				CD4CAE6A211F45190076BC6D /* UserDB+CoreDataProperties.swift */,
+			);
+			path = NSManageObjectClass;
+			sourceTree = "<group>";
+		};
+		CD4CAE71211F60E00076BC6D /* SRCoreDataStackManager */ = {
+			isa = PBXGroup;
+			children = (
+				CD4CAE62211F3F400076BC6D /* SRCoreDataStackManager.swift */,
+			);
+			path = SRCoreDataStackManager;
+			sourceTree = "<group>";
+		};
+		CD4CAE72211F60F20076BC6D /* NSManageObject+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */,
+				CD4CAE75211F61110076BC6D /* NSManagedObjectContext+AsyncSave.swift */,
+				CD4CAE74211F61110076BC6D /* NSManagedObjectContext+Save.swift */,
+			);
+			path = "NSManageObject+Extension";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,8 +290,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD4CAE78211F61120076BC6D /* NSManagedObjectContext+AsyncSave.swift in Sources */,
+				CD4CAE6B211F45190076BC6D /* UserDB+CoreDataClass.swift in Sources */,
 				CD11F295211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodeld in Sources */,
+				CD4CAE76211F61120076BC6D /* NSManagedObject+Fetch.swift in Sources */,
+				CD4CAE6C211F45190076BC6D /* UserDB+CoreDataProperties.swift in Sources */,
 				CD11F28F211F062F0018AFC8 /* ViewController.swift in Sources */,
+				CD4CAE77211F61120076BC6D /* NSManagedObjectContext+Save.swift in Sources */,
+				CD4CAE63211F3F400076BC6D /* SRCoreDataStackManager.swift in Sources */,
 				CD11F28D211F062F0018AFC8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,7 +460,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZH7Z5723YF;
-				INFOPLIST_FILE = SRCoreDataLayer/Info.plist;
+				INFOPLIST_FILE = SRCoreDataLayer/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -382,7 +479,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZH7Z5723YF;
-				INFOPLIST_FILE = SRCoreDataLayer/Info.plist;
+				INFOPLIST_FILE = SRCoreDataLayer/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
