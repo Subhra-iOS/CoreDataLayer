@@ -30,7 +30,7 @@ extension NSManagedObjectContext {
             // performAndWait is marked @escaping as of iOS 10.0.
             // swiftlint:disable type_name
             typealias Fn = (() -> Void) -> Void
-            let performAndWaitNoescape = unsafeBitCast(self.performAndWait, to: Fn.self)
+			let performAndWaitNoescape = self.performAndWait
             performAndWaitNoescape {
                 do {
                     result = try work()

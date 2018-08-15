@@ -9,25 +9,42 @@
 import Foundation
 import CoreData
 
-final class SRCoreDataStackManager : NSObject {
+final public class SRCoreDataStackManager : NSObject {
+	
+	let migrationManager: SRCoreDataMigrationManager
 	
 	static  let sharedManager : SRCoreDataStackManager = SRCoreDataStackManager()
 	
-	override private init() {
+	private override init() {
+		self.migrationManager = SRCoreDataMigrationManager()
 		super.init()
 	}
 	
+	
 	// MARK: - Core Data stack
-	lazy var persistentContainer: NSPersistentContainer = {
-		/*
-		The persistent container for the application. This implementation
-		creates and returns a container, having loaded the store for the
-		application to it. This property is optional since there are legitimate
-		error conditions that could cause the creation of the store to fail.
-		*/
-		let container = NSPersistentContainer(name: "SRCoreDataLayer")
+	lazy var persistentContainer: NSPersistentContainer! = {
+		let persistentContainer = NSPersistentContainer(name: "SRCoreDataLayer")
+		let description = persistentContainer.persistentStoreDescriptions.first
+		description?.shouldInferMappingModelAutomatically = false //inferred mapping will be handled else where
 		
-		return container
+		return persistentContainer
+	}()
+	
+	//MARK:- Background ManageObjectContext
+	lazy var backgroundContext: NSManagedObjectContext = {
+		let context = self.persistentContainer.newBackgroundContext()
+		context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+		
+		return context
+	}()
+	
+	//MARK:- Main ManageObjectContext
+
+	lazy var mainContext: NSManagedObjectContext = {
+		let context = self.persistentContainer.viewContext
+		context.automaticallyMergesChangesFromParent = true
+		
+		return context
 	}()
 	
 	// MARK: - SetUp
@@ -39,42 +56,39 @@ final class SRCoreDataStackManager : NSObject {
 	
 	// MARK: - Loading
 	private func loadPersistentStore(completion: @escaping () -> Void) {
-		self.persistentContainer.loadPersistentStores { storeDescription, error in
-			
-			if let error = error as NSError? {
-				// Replace this implementation with code to handle the error appropriately.
-				// fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+		migrateStoreIfNeeded {
+			self.persistentContainer.loadPersistentStores { description, error in
+				guard error == nil else {
+					fatalError("was unable to load store \(error!)")
+				}
 				
-				/*
-				Typical reasons for an error here include:
-				* The parent directory does not exist, cannot be created, or disallows writing.
-				* The persistent store is not accessible, due to permissions or data protection when the device is locked.
-				* The device is out of space.
-				* The store could not be migrated to the current model version.
-				Check the error message to determine what the actual problem was.
-				*/
-				fatalError("Unresolved error \(error), \(error.userInfo)")
+				completion()
 			}
+		}
+	}
+	
+	private func migrateStoreIfNeeded(completion: @escaping () -> Void) {
+		guard let storeURL = persistentContainer.persistentStoreDescriptions.first?.url else {
+			fatalError("persistentContainer was not set up properly")
+		}
+		
+		if self.migrationManager.requiresMigration(at: storeURL) {
 			
+			DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+				self.migrationManager.migrateStore(at: storeURL)
+				
+				DispatchQueue.main.async {
+					completion()
+				}
+			}
+		} else {
 			completion()
 		}
 	}
 	
-	//MARK:- Background ManageObjectContext
-	lazy var backgroundContext: NSManagedObjectContext = {
-		let context = self.persistentContainer.newBackgroundContext()
-		context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-		
-		return context
-	}()
-	
-	//MARK:- Main ManageObjectContext
-	lazy var mainContext: NSManagedObjectContext = {
-		let context = self.persistentContainer.viewContext
-		context.automaticallyMergesChangesFromParent = true
-		
-		return context
-	}()
+}
+
+public extension SRCoreDataStackManager{
 	
 	// MARK: - Core Data Saving support on Main Context
 	func saveOnMainContext () {
@@ -92,7 +106,7 @@ final class SRCoreDataStackManager : NSObject {
 	}
 	
 	//MARK: - Save on Background Context
-	func saveOnBackgroundContextWith( _ context : NSManagedObjectContext ,_ completionHandler : (( _ success : Bool) -> Void)? = nil) -> Void{
+	func saveOnBackgroundContextWith( _ context : NSManagedObjectContext ,_ completionHandler : (( _ success : SaveResult) -> Void)? = nil) -> Void{
 		
 		context.saveContextToStore { result in
 			

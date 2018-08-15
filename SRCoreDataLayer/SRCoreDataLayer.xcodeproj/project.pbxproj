@@ -14,6 +14,10 @@
 		CD11F297211F063A0018AFC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD11F296211F063A0018AFC8 /* Assets.xcassets */; };
 		CD11F29A211F063A0018AFC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD11F298211F063A0018AFC8 /* LaunchScreen.storyboard */; };
 		CD11F2A5211F063B0018AFC8 /* SRCoreDataLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD11F2A4211F063B0018AFC8 /* SRCoreDataLayerTests.swift */; };
+		CD1AB8B7212443D8002B62C2 /* SRCoreDataMigrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1AB8B4212443D8002B62C2 /* SRCoreDataMigrationModel.swift */; };
+		CD1AB8B8212443D8002B62C2 /* SRCoreDataMigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1AB8B5212443D8002B62C2 /* SRCoreDataMigrationManager.swift */; };
+		CD1AB8B9212443D8002B62C2 /* SRCoreDataMigrationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1AB8B6212443D8002B62C2 /* SRCoreDataMigrationStep.swift */; };
+		CD1AB8BB21244F38002B62C2 /* SRCoreDataMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1AB8BA21244F38002B62C2 /* SRCoreDataMigrationPolicy.swift */; };
 		CD4CAE63211F3F400076BC6D /* SRCoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE62211F3F400076BC6D /* SRCoreDataStackManager.swift */; };
 		CD4CAE6B211F45190076BC6D /* UserDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE69211F45190076BC6D /* UserDB+CoreDataClass.swift */; };
 		CD4CAE6C211F45190076BC6D /* UserDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE6A211F45190076BC6D /* UserDB+CoreDataProperties.swift */; };
@@ -44,6 +48,10 @@
 		CD11F2A0211F063B0018AFC8 /* SRCoreDataLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRCoreDataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD11F2A4211F063B0018AFC8 /* SRCoreDataLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCoreDataLayerTests.swift; sourceTree = "<group>"; };
 		CD11F2A6211F063B0018AFC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD1AB8B4212443D8002B62C2 /* SRCoreDataMigrationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCoreDataMigrationModel.swift; sourceTree = "<group>"; };
+		CD1AB8B5212443D8002B62C2 /* SRCoreDataMigrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCoreDataMigrationManager.swift; sourceTree = "<group>"; };
+		CD1AB8B6212443D8002B62C2 /* SRCoreDataMigrationStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCoreDataMigrationStep.swift; sourceTree = "<group>"; };
+		CD1AB8BA21244F38002B62C2 /* SRCoreDataMigrationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCoreDataMigrationPolicy.swift; sourceTree = "<group>"; };
 		CD4CAE62211F3F400076BC6D /* SRCoreDataStackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCoreDataStackManager.swift; sourceTree = "<group>"; };
 		CD4CAE69211F45190076BC6D /* UserDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDB+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD4CAE6A211F45190076BC6D /* UserDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -107,6 +115,17 @@
 			path = SRCoreDataLayerTests;
 			sourceTree = "<group>";
 		};
+		CD1AB8B3212443AC002B62C2 /* SRCoreDataMigration */ = {
+			isa = PBXGroup;
+			children = (
+				CD1AB8B4212443D8002B62C2 /* SRCoreDataMigrationModel.swift */,
+				CD1AB8B6212443D8002B62C2 /* SRCoreDataMigrationStep.swift */,
+				CD1AB8B5212443D8002B62C2 /* SRCoreDataMigrationManager.swift */,
+				CD1AB8BA21244F38002B62C2 /* SRCoreDataMigrationPolicy.swift */,
+			);
+			path = SRCoreDataMigration;
+			sourceTree = "<group>";
+		};
 		CD4CAE5C211F3D8B0076BC6D /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +161,7 @@
 		CD4CAE5F211F3EF80076BC6D /* SRCoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
+				CD1AB8B3212443AC002B62C2 /* SRCoreDataMigration */,
 				CD4CAE72211F60F20076BC6D /* NSManageObject+Extension */,
 				CD4CAE71211F60E00076BC6D /* SRCoreDataStackManager */,
 			);
@@ -292,12 +312,16 @@
 			files = (
 				CD4CAE78211F61120076BC6D /* NSManagedObjectContext+AsyncSave.swift in Sources */,
 				CD4CAE6B211F45190076BC6D /* UserDB+CoreDataClass.swift in Sources */,
+				CD1AB8B8212443D8002B62C2 /* SRCoreDataMigrationManager.swift in Sources */,
 				CD11F295211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodeld in Sources */,
+				CD1AB8B7212443D8002B62C2 /* SRCoreDataMigrationModel.swift in Sources */,
 				CD4CAE76211F61120076BC6D /* NSManagedObject+Fetch.swift in Sources */,
 				CD4CAE6C211F45190076BC6D /* UserDB+CoreDataProperties.swift in Sources */,
+				CD1AB8B9212443D8002B62C2 /* SRCoreDataMigrationStep.swift in Sources */,
 				CD11F28F211F062F0018AFC8 /* ViewController.swift in Sources */,
 				CD4CAE77211F61120076BC6D /* NSManagedObjectContext+Save.swift in Sources */,
 				CD4CAE63211F3F400076BC6D /* SRCoreDataStackManager.swift in Sources */,
+				CD1AB8BB21244F38002B62C2 /* SRCoreDataMigrationPolicy.swift in Sources */,
 				CD11F28D211F062F0018AFC8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
