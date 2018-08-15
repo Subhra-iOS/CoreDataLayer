@@ -10,5 +10,10 @@ import CoreData
 
 class SRCoreDataMigrationPolicy : NSEntityMigrationPolicy{
 	
+	func convertZipCodeToString(_ zipCode : NSNumber) -> String {
+		
+		return  String(format: "%@", arguments: [zipCode])
+		
+	}
 	
 }
