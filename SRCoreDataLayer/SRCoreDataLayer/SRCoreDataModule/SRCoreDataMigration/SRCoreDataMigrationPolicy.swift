@@ -16,4 +16,9 @@ class SRCoreDataMigrationPolicy : NSEntityMigrationPolicy{
 		
 	}
 	
+	func convertUserIdToNumber(_ userId : String) -> NSNumber{
+		
+		return NSNumber(value: Int64(userId))
+	}
+	
 }
