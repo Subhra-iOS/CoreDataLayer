@@ -48,21 +48,21 @@ final public class SRCoreDataStackManager : NSObject {
 	}()
 	
 	// MARK: - SetUp
-	func setup(completion: @escaping () -> Void) {
-		loadPersistentStore {
-			completion()
+	func setup(completion: @escaping (_ stack : SRCoreDataStackManager) -> Void) {
+		loadPersistentStore { stackObject in
+			completion(stackObject)
 		}
 	}
 	
 	// MARK: - Loading
-	private func loadPersistentStore(completion: @escaping () -> Void) {
+	private func loadPersistentStore(completion: @escaping (_ stack : SRCoreDataStackManager) -> Void) {
 		migrateStoreIfNeeded {
 			self.persistentContainer.loadPersistentStores { description, error in
 				guard error == nil else {
 					fatalError("was unable to load store \(error!)")
 				}
 				
-				completion()
+				completion(self)
 			}
 		}
 	}
