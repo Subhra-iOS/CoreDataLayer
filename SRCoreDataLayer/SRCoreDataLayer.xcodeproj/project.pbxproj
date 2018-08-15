@@ -135,7 +135,7 @@
 				CD1AB8BE212473E2002B62C2 /* NSPersistentStoreCoordinator+SQLite.swift */,
 			);
 			name = "NSPersistentStoreCoordinator+Extension";
-			path = "SRCoreDataLayer/SRCoreDataModule/SRCoreDataStack/NSPersistentStoreCoordinator+Extension";
+			path = "SRCoreDataLayer/SRCoreDataModule/SRCoreDataExtension/NSPersistentStoreCoordinator+Extension";
 			sourceTree = SOURCE_ROOT;
 		};
 		CD4CAE5C211F3D8B0076BC6D /* Application */ = {
@@ -154,9 +154,9 @@
 		CD4CAE5D211F3DEA0076BC6D /* SRCoreDataModule */ = {
 			isa = PBXGroup;
 			children = (
+				CD1AB8B3212443AC002B62C2 /* SRCoreDataMigration */,
 				CD4CAE61211F3F1F0076BC6D /* SRCoreDataExtension */,
-				CD4CAE60211F3F070076BC6D /* SRCoreDataMigration */,
-				CD4CAE5F211F3EF80076BC6D /* SRCoreDataStack */,
+				CD4CAE71211F60E00076BC6D /* SRCoreDataStackManager */,
 			);
 			path = SRCoreDataModule;
 			sourceTree = "<group>";
@@ -170,27 +170,11 @@
 			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
-		CD4CAE5F211F3EF80076BC6D /* SRCoreDataStack */ = {
-			isa = PBXGroup;
-			children = (
-				CD1AB8BD212473E2002B62C2 /* NSPersistentStoreCoordinator+Extension */,
-				CD1AB8B3212443AC002B62C2 /* SRCoreDataMigration */,
-				CD4CAE72211F60F20076BC6D /* NSManageObject+Extension */,
-				CD4CAE71211F60E00076BC6D /* SRCoreDataStackManager */,
-			);
-			path = SRCoreDataStack;
-			sourceTree = "<group>";
-		};
-		CD4CAE60211F3F070076BC6D /* SRCoreDataMigration */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SRCoreDataMigration;
-			sourceTree = "<group>";
-		};
 		CD4CAE61211F3F1F0076BC6D /* SRCoreDataExtension */ = {
 			isa = PBXGroup;
 			children = (
+				CD1AB8BD212473E2002B62C2 /* NSPersistentStoreCoordinator+Extension */,
+				CD4CAE72211F60F20076BC6D /* NSManageObject+Extension */,
 			);
 			path = SRCoreDataExtension;
 			sourceTree = "<group>";
