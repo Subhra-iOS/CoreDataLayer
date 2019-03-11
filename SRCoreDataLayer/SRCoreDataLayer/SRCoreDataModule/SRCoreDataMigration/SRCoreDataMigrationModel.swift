@@ -12,8 +12,8 @@ import CoreData
 enum SRCoreDataVersion: Int {
     case version1 = 1
     case version2
-    case version3
-    case version4
+    //case version3
+   // case version4
     
     // MARK: - Accessors
     
@@ -81,12 +81,13 @@ class SRCoreDataMigrationModel {
         switch self.version {
         case .version1:
             return SRCoreDataMigrationModel(version: .version2)
-        case .version2:
+		case .version2: return nil
+      /*  case .version2:
             return SRCoreDataMigrationModel(version: .version3)
         case .version3:
             return SRCoreDataMigrationModel(version: .version4)
         case .version4:
-            return nil
+            return nil*/
         }
     }
     
@@ -105,7 +106,9 @@ class SRCoreDataMigrationModel {
         guard let url = omoURL ?? momURL else {
             fatalError("unable to find model in bundle")
         }
-        
+		
+		print("\(url)")
+		
         guard let model = NSManagedObjectModel(contentsOf: url) else {
             fatalError("unable to load model in bundle")
         }

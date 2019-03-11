@@ -2,7 +2,7 @@
 //  UserDB+CoreDataClass.swift
 //  SRCoreDataLayer
 //
-//  Created by Subhr Roy on 11/08/18.
+//  Created by Subhr Roy on 19/08/18.
 //  Copyright © 2018 Subhr Roy. All rights reserved.
 //
 //
@@ -14,4 +14,3 @@ import CoreData
 public class UserDB: NSManagedObject {
 
 }
-

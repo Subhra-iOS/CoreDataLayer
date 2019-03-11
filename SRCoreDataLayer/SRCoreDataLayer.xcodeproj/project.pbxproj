@@ -21,12 +21,16 @@
 		CD1AB8BF212473E2002B62C2 /* NSPersistentStoreCoordinator+SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1AB8BE212473E2002B62C2 /* NSPersistentStoreCoordinator+SQLite.swift */; };
 		CD1AB8C1212477AB002B62C2 /* SRCoreDataLayerMappingModelV1ToV2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = CD1AB8C0212477AB002B62C2 /* SRCoreDataLayerMappingModelV1ToV2.xcmappingmodel */; };
 		CD1AB8C421247E92002B62C2 /* SRCoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1AB8C321247E92002B62C2 /* SRCoreDataStore.swift */; };
+		CD1B17AA2129899E0072DF1A /* UserDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1B17A82129899E0072DF1A /* UserDB+CoreDataClass.swift */; };
+		CD1B17AB2129899E0072DF1A /* UserDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1B17A92129899E0072DF1A /* UserDB+CoreDataProperties.swift */; };
 		CD4CAE63211F3F400076BC6D /* SRCoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE62211F3F400076BC6D /* SRCoreDataStackManager.swift */; };
-		CD4CAE6B211F45190076BC6D /* UserDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE69211F45190076BC6D /* UserDB+CoreDataClass.swift */; };
-		CD4CAE6C211F45190076BC6D /* UserDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE6A211F45190076BC6D /* UserDB+CoreDataProperties.swift */; };
 		CD4CAE76211F61120076BC6D /* NSManagedObject+Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */; };
 		CD4CAE77211F61120076BC6D /* NSManagedObjectContext+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE74211F61110076BC6D /* NSManagedObjectContext+Save.swift */; };
 		CD4CAE78211F61120076BC6D /* NSManagedObjectContext+AsyncSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE75211F61110076BC6D /* NSManagedObjectContext+AsyncSave.swift */; };
+		CDC7A91721371D9A00240AD0 /* NSManageObjectModel+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7A91621371D9A00240AD0 /* NSManageObjectModel+Utility.swift */; };
+		CDCC3949212DE37300091A75 /* NSPersistentStoreCoordinator+AsyncHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCC3947212DE37300091A75 /* NSPersistentStoreCoordinator+AsyncHelpers.swift */; };
+		CDCC394C212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCC394B212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift */; };
+		CDD854322131D0DC007FAAFE /* SRMigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD854312131D0DC007FAAFE /* SRMigrationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,12 +63,16 @@
 		CD1AB8BE212473E2002B62C2 /* NSPersistentStoreCoordinator+SQLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+SQLite.swift"; sourceTree = "<group>"; };
 		CD1AB8C0212477AB002B62C2 /* SRCoreDataLayerMappingModelV1ToV2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = SRCoreDataLayerMappingModelV1ToV2.xcmappingmodel; sourceTree = "<group>"; };
 		CD1AB8C321247E92002B62C2 /* SRCoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCoreDataStore.swift; sourceTree = "<group>"; };
+		CD1B17A82129899E0072DF1A /* UserDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDB+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CD1B17A92129899E0072DF1A /* UserDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD4CAE62211F3F400076BC6D /* SRCoreDataStackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCoreDataStackManager.swift; sourceTree = "<group>"; };
-		CD4CAE69211F45190076BC6D /* UserDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDB+CoreDataClass.swift"; sourceTree = "<group>"; };
-		CD4CAE6A211F45190076BC6D /* UserDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Fetch.swift"; sourceTree = "<group>"; };
 		CD4CAE74211F61110076BC6D /* NSManagedObjectContext+Save.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Save.swift"; sourceTree = "<group>"; };
 		CD4CAE75211F61110076BC6D /* NSManagedObjectContext+AsyncSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+AsyncSave.swift"; sourceTree = "<group>"; };
+		CDC7A91621371D9A00240AD0 /* NSManageObjectModel+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSManageObjectModel+Utility.swift"; path = "../../../../../../../BitBucket/RnDRepo/CoreDataVersion3/CoreDataVersion3/Utility/Extensions/NSManageObjectModel+Utility.swift"; sourceTree = "<group>"; };
+		CDCC3947212DE37300091A75 /* NSPersistentStoreCoordinator+AsyncHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+AsyncHelpers.swift"; sourceTree = "<group>"; };
+		CDCC394B212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+CoreDataModelHelper.swift"; sourceTree = "<group>"; };
+		CDD854312131D0DC007FAAFE /* SRMigrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRMigrationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +137,7 @@
 				CD1AB8B6212443D8002B62C2 /* SRCoreDataMigrationStep.swift */,
 				CD1AB8B5212443D8002B62C2 /* SRCoreDataMigrationManager.swift */,
 				CD1AB8BA21244F38002B62C2 /* SRCoreDataMigrationPolicy.swift */,
+				CDD854312131D0DC007FAAFE /* SRMigrationManager.swift */,
 			);
 			path = SRCoreDataMigration;
 			sourceTree = "<group>";
@@ -196,8 +205,8 @@
 		CD4CAE64211F44220076BC6D /* NSManageObjectClass */ = {
 			isa = PBXGroup;
 			children = (
-				CD4CAE69211F45190076BC6D /* UserDB+CoreDataClass.swift */,
-				CD4CAE6A211F45190076BC6D /* UserDB+CoreDataProperties.swift */,
+				CD1B17A82129899E0072DF1A /* UserDB+CoreDataClass.swift */,
+				CD1B17A92129899E0072DF1A /* UserDB+CoreDataProperties.swift */,
 			);
 			path = NSManageObjectClass;
 			sourceTree = "<group>";
@@ -213,9 +222,12 @@
 		CD4CAE72211F60F20076BC6D /* NSManageObject+Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CDCC394B212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift */,
+				CDCC3947212DE37300091A75 /* NSPersistentStoreCoordinator+AsyncHelpers.swift */,
 				CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */,
 				CD4CAE75211F61110076BC6D /* NSManagedObjectContext+AsyncSave.swift */,
 				CD4CAE74211F61110076BC6D /* NSManagedObjectContext+Save.swift */,
+				CDC7A91621371D9A00240AD0 /* NSManageObjectModel+Utility.swift */,
 			);
 			path = "NSManageObject+Extension";
 			sourceTree = "<group>";
@@ -322,17 +334,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD1AB8BF212473E2002B62C2 /* NSPersistentStoreCoordinator+SQLite.swift in Sources */,
+				CDCC3949212DE37300091A75 /* NSPersistentStoreCoordinator+AsyncHelpers.swift in Sources */,
 				CD4CAE78211F61120076BC6D /* NSManagedObjectContext+AsyncSave.swift in Sources */,
 				CD1AB8C1212477AB002B62C2 /* SRCoreDataLayerMappingModelV1ToV2.xcmappingmodel in Sources */,
-				CD4CAE6B211F45190076BC6D /* UserDB+CoreDataClass.swift in Sources */,
 				CD1AB8B8212443D8002B62C2 /* SRCoreDataMigrationManager.swift in Sources */,
+				CDD854322131D0DC007FAAFE /* SRMigrationManager.swift in Sources */,
 				CD1AB8C421247E92002B62C2 /* SRCoreDataStore.swift in Sources */,
 				CD11F295211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodeld in Sources */,
 				CD1AB8B7212443D8002B62C2 /* SRCoreDataMigrationModel.swift in Sources */,
 				CD4CAE76211F61120076BC6D /* NSManagedObject+Fetch.swift in Sources */,
-				CD4CAE6C211F45190076BC6D /* UserDB+CoreDataProperties.swift in Sources */,
 				CD1AB8B9212443D8002B62C2 /* SRCoreDataMigrationStep.swift in Sources */,
 				CD11F28F211F062F0018AFC8 /* ViewController.swift in Sources */,
+				CD1B17AB2129899E0072DF1A /* UserDB+CoreDataProperties.swift in Sources */,
+				CDCC394C212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift in Sources */,
+				CD1B17AA2129899E0072DF1A /* UserDB+CoreDataClass.swift in Sources */,
+				CDC7A91721371D9A00240AD0 /* NSManageObjectModel+Utility.swift in Sources */,
 				CD4CAE77211F61120076BC6D /* NSManagedObjectContext+Save.swift in Sources */,
 				CD4CAE63211F3F400076BC6D /* SRCoreDataStackManager.swift in Sources */,
 				CD1AB8BB21244F38002B62C2 /* SRCoreDataMigrationPolicy.swift in Sources */,
@@ -496,7 +512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = ZH7Z5723YF;
 				INFOPLIST_FILE = SRCoreDataLayer/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -504,8 +520,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.devSR.SRCoreDataLayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobiledev.SRCoreDataLayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7af3221b-9a35-48b1-8f2e-537c60b29282";
+				PROVISIONING_PROFILE_SPECIFIER = GenericDevPP;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -515,7 +533,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = ZH7Z5723YF;
 				INFOPLIST_FILE = SRCoreDataLayer/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -523,8 +541,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.devSR.SRCoreDataLayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobiledev.SRCoreDataLayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7af3221b-9a35-48b1-8f2e-537c60b29282";
+				PROVISIONING_PROFILE_SPECIFIER = GenericDevPP;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

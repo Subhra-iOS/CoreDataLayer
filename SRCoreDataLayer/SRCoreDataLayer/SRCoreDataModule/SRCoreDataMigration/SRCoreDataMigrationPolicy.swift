@@ -10,7 +10,7 @@ import CoreData
 
 class SRCoreDataMigrationPolicy : NSEntityMigrationPolicy{
 	
-	func convertZipCodeToString(_ zipCode : NSNumber) -> String {
+	func convertZipCodeToString(_ zipCode : Int64) -> String {
 		
 		return  String(format: "%@", arguments: [zipCode])
 		
@@ -18,7 +18,7 @@ class SRCoreDataMigrationPolicy : NSEntityMigrationPolicy{
 	
 	func convertUserIdToNumber(_ userId : String) -> NSNumber{
 		
-		return NSNumber(value: Int64(userId))
+		return  NSNumber(value: Int64(userId)!)
 	}
 	
 }

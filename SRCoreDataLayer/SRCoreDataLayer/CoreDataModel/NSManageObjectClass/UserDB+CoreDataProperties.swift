@@ -2,7 +2,7 @@
 //  UserDB+CoreDataProperties.swift
 //  SRCoreDataLayer
 //
-//  Created by Subhr Roy on 15/08/18.
+//  Created by Subhr Roy on 29/08/18.
 //  Copyright © 2018 Subhr Roy. All rights reserved.
 //
 //
@@ -19,6 +19,6 @@ extension UserDB {
 
     @NSManaged public var userEmail: String?
     @NSManaged public var userID: String?
-    @NSManaged public var zipCode: Int64
+    @NSManaged public var zipCode: NSNumber?
 
 }
