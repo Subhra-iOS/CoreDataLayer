@@ -52,7 +52,7 @@ public class SRCoreDataStore : NSObject {
 		bgTask = application.beginBackgroundTask {
 			
 			application.endBackgroundTask(bgTask!)
-			bgTask = UIBackgroundTaskInvalid
+			bgTask = UIBackgroundTaskIdentifier(rawValue: convertFromUIBackgroundTaskIdentifier(UIBackgroundTaskIdentifier.invalid))
 			
 		}
 		
@@ -62,7 +62,7 @@ public class SRCoreDataStore : NSObject {
 		let isSucceed : Bool = try! migrationManager.progressivelyMigrateURL(sourceStoreURL: SRCoreDataStackManager.dataStoreURL!, ofType: NSSQLiteStoreType, to: SRCoreDataStackManager.stackObjectModel)
 		
 		application.endBackgroundTask(bgTask!)
-		bgTask = UIBackgroundTaskInvalid
+		bgTask = UIBackgroundTaskIdentifier(rawValue: convertFromUIBackgroundTaskIdentifier(UIBackgroundTaskIdentifier.invalid))
 		
 		return  isSucceed
 		
@@ -75,4 +75,9 @@ public class SRCoreDataStore : NSObject {
 		
 	}
 	
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIBackgroundTaskIdentifier(_ input: UIBackgroundTaskIdentifier) -> Int {
+	return input.rawValue
 }

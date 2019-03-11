@@ -282,9 +282,11 @@
 				TargetAttributes = {
 					CD11F288211F062F0018AFC8 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 					CD11F29F211F063B0018AFC8 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = CD11F288211F062F0018AFC8;
 					};
 				};
@@ -524,7 +526,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7af3221b-9a35-48b1-8f2e-537c60b29282";
 				PROVISIONING_PROFILE_SPECIFIER = GenericDevPP;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -545,7 +547,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7af3221b-9a35-48b1-8f2e-537c60b29282";
 				PROVISIONING_PROFILE_SPECIFIER = GenericDevPP;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -565,7 +567,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.devSR.SRCoreDataLayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SRCoreDataLayer.app/SRCoreDataLayer";
 			};
@@ -586,7 +588,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.devSR.SRCoreDataLayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SRCoreDataLayer.app/SRCoreDataLayer";
 			};
