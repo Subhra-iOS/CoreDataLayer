@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import SRCoreDataLayer
+//@testable import SRCoreDataLayer
 
 class SRCoreDataLayerTests: XCTestCase {
     

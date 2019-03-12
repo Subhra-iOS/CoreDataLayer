@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A2753492237B4B50014D263 /* NSPersistentContainer+SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2753482237B4B50014D263 /* NSPersistentContainer+SQLite.swift */; };
 		CD11F28D211F062F0018AFC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD11F28C211F062F0018AFC8 /* AppDelegate.swift */; };
 		CD11F28F211F062F0018AFC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD11F28E211F062F0018AFC8 /* ViewController.swift */; };
 		CD11F292211F062F0018AFC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD11F290211F062F0018AFC8 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A2753482237B4B50014D263 /* NSPersistentContainer+SQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPersistentContainer+SQLite.swift"; sourceTree = "<group>"; };
 		CD11F289211F062F0018AFC8 /* SRCoreDataLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SRCoreDataLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD11F28C211F062F0018AFC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD11F28E211F062F0018AFC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				CD1AB8BE212473E2002B62C2 /* NSPersistentStoreCoordinator+SQLite.swift */,
+				2A2753482237B4B50014D263 /* NSPersistentContainer+SQLite.swift */,
 			);
 			name = "NSPersistentStoreCoordinator+Extension";
 			path = "SRCoreDataLayer/SRCoreDataModule/SRCoreDataExtension/NSPersistentStoreCoordinator+Extension";
@@ -345,6 +348,7 @@
 				CD11F295211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodeld in Sources */,
 				CD1AB8B7212443D8002B62C2 /* SRCoreDataMigrationModel.swift in Sources */,
 				CD4CAE76211F61120076BC6D /* NSManagedObject+Fetch.swift in Sources */,
+				2A2753492237B4B50014D263 /* NSPersistentContainer+SQLite.swift in Sources */,
 				CD1AB8B9212443D8002B62C2 /* SRCoreDataMigrationStep.swift in Sources */,
 				CD11F28F211F062F0018AFC8 /* ViewController.swift in Sources */,
 				CD1B17AB2129899E0072DF1A /* UserDB+CoreDataProperties.swift in Sources */,

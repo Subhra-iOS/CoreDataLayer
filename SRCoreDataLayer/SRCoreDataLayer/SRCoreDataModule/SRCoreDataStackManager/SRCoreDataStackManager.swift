@@ -35,7 +35,7 @@ final public class SRCoreDataStackManager : NSObject {
 	public static func createSQLiteStack(modelName: String,
 										 in bundle: Bundle = Bundle.main,
 										 at desiredStoreURL: URL? = nil,
-										 persistentStoreOptions: [AnyHashable : Any]? = NSPersistentStoreCoordinator.stockSQLiteStoreOptions,
+										 persistentStoreOptions: [AnyHashable : Any]? = NSPersistentContainer.stockSQLiteStoreOptions,
 										 on callbackQueue: DispatchQueue? = nil,
 										 callback: @escaping SetupCallback) {
 		
@@ -50,7 +50,7 @@ final public class SRCoreDataStackManager : NSObject {
 		
 		if self.isMigrationRequired(modelName){
 			
-			storeMigrationOption = NSPersistentStoreCoordinator.stockSQLiteStoreMigrationOptions
+			storeMigrationOption = NSPersistentContainer.stockSQLiteStoreMigrationOptions
 			SRCoreDataStackManager.isMigrationTrue = true
 			
 		}else{
@@ -66,7 +66,7 @@ final public class SRCoreDataStackManager : NSObject {
 
 	public static func constructSQLiteStack(model: NSManagedObjectModel,
 											at desiredStoreURL: URL? = nil,
-											persistentStoreOptions: [AnyHashable : Any]? = NSPersistentStoreCoordinator.stockSQLiteStoreOptions,
+											persistentStoreOptions: [AnyHashable : Any]? = NSPersistentContainer.stockSQLiteStoreOptions,
 											on callbackQueue: DispatchQueue? = nil,
 											callback: @escaping SetupCallback) {
 		
@@ -81,7 +81,8 @@ final public class SRCoreDataStackManager : NSObject {
 		
 		let backgroundQueue = DispatchQueue.global(qos: .background)
 		let callbackQueue: DispatchQueue = callbackQueue ?? backgroundQueue
-		NSPersistentStoreCoordinator.setUpSQLiteContainer(model,storeFileURL: storeFileURL,persistentStoreOptions: persistentStoreOptions as? [String : Any]) { contanierResult in
+        
+		NSPersistentContainer.setUpSQLiteContainer(model, storeFileURL: storeFileURL,persistentStoreOptions: persistentStoreOptions as? [String : Any]) { contanierResult in
 				switch contanierResult {
 				case .success(let container):
 					let stack = SRCoreDataStackManager(model:model,
