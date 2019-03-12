@@ -39,7 +39,7 @@ public class SRCoreDataStore : NSObject {
 	}
 	
 	public func fetchBackgroundContext() -> NSManagedObjectContext{
-		print("\(self.dataStack)")
+        print("\(String(describing: self.dataStack))")
 		return self.dataStack.newChildContext()
 	}
 	//MARK:----------Migration-----------

@@ -28,7 +28,6 @@
 		CD4CAE76211F61120076BC6D /* NSManagedObject+Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */; };
 		CD4CAE77211F61120076BC6D /* NSManagedObjectContext+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE74211F61110076BC6D /* NSManagedObjectContext+Save.swift */; };
 		CD4CAE78211F61120076BC6D /* NSManagedObjectContext+AsyncSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE75211F61110076BC6D /* NSManagedObjectContext+AsyncSave.swift */; };
-		CDC7A91721371D9A00240AD0 /* NSManageObjectModel+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC7A91621371D9A00240AD0 /* NSManageObjectModel+Utility.swift */; };
 		CDCC3949212DE37300091A75 /* NSPersistentStoreCoordinator+AsyncHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCC3947212DE37300091A75 /* NSPersistentStoreCoordinator+AsyncHelpers.swift */; };
 		CDCC394C212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCC394B212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift */; };
 		CDD854322131D0DC007FAAFE /* SRMigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD854312131D0DC007FAAFE /* SRMigrationManager.swift */; };
@@ -71,7 +70,6 @@
 		CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Fetch.swift"; sourceTree = "<group>"; };
 		CD4CAE74211F61110076BC6D /* NSManagedObjectContext+Save.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Save.swift"; sourceTree = "<group>"; };
 		CD4CAE75211F61110076BC6D /* NSManagedObjectContext+AsyncSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+AsyncSave.swift"; sourceTree = "<group>"; };
-		CDC7A91621371D9A00240AD0 /* NSManageObjectModel+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSManageObjectModel+Utility.swift"; path = "../../../../../../../BitBucket/RnDRepo/CoreDataVersion3/CoreDataVersion3/Utility/Extensions/NSManageObjectModel+Utility.swift"; sourceTree = "<group>"; };
 		CDCC3947212DE37300091A75 /* NSPersistentStoreCoordinator+AsyncHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+AsyncHelpers.swift"; sourceTree = "<group>"; };
 		CDCC394B212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+CoreDataModelHelper.swift"; sourceTree = "<group>"; };
 		CDD854312131D0DC007FAAFE /* SRMigrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRMigrationManager.swift; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 				CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */,
 				CD4CAE75211F61110076BC6D /* NSManagedObjectContext+AsyncSave.swift */,
 				CD4CAE74211F61110076BC6D /* NSManagedObjectContext+Save.swift */,
-				CDC7A91621371D9A00240AD0 /* NSManageObjectModel+Utility.swift */,
 			);
 			path = "NSManageObject+Extension";
 			sourceTree = "<group>";
@@ -354,7 +351,6 @@
 				CD1B17AB2129899E0072DF1A /* UserDB+CoreDataProperties.swift in Sources */,
 				CDCC394C212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift in Sources */,
 				CD1B17AA2129899E0072DF1A /* UserDB+CoreDataClass.swift in Sources */,
-				CDC7A91721371D9A00240AD0 /* NSManageObjectModel+Utility.swift in Sources */,
 				CD4CAE77211F61120076BC6D /* NSManagedObjectContext+Save.swift in Sources */,
 				CD4CAE63211F3F400076BC6D /* SRCoreDataStackManager.swift in Sources */,
 				CD1AB8BB21244F38002B62C2 /* SRCoreDataMigrationPolicy.swift in Sources */,
@@ -519,17 +515,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZH7Z5723YF;
+				DEVELOPMENT_TEAM = BJ3HU6DR5Z;
 				INFOPLIST_FILE = SRCoreDataLayer/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobiledev.SRCoreDataLayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ARC.PrintApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7af3221b-9a35-48b1-8f2e-537c60b29282";
-				PROVISIONING_PROFILE_SPECIFIER = GenericDevPP;
+				PROVISIONING_PROFILE_SPECIFIER = ARCPrintAppDevelopment;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -540,17 +536,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZH7Z5723YF;
+				DEVELOPMENT_TEAM = BJ3HU6DR5Z;
 				INFOPLIST_FILE = SRCoreDataLayer/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobiledev.SRCoreDataLayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ARC.PrintApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7af3221b-9a35-48b1-8f2e-537c60b29282";
-				PROVISIONING_PROFILE_SPECIFIER = GenericDevPP;
+				PROVISIONING_PROFILE_SPECIFIER = ARCPrintAppDevelopment;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
