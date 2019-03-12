@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A2753492237B4B50014D263 /* NSPersistentContainer+SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2753482237B4B50014D263 /* NSPersistentContainer+SQLite.swift */; };
+		CD0FDF0422381E0200320448 /* NSManageObjectModel+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0FDF0322381E0100320448 /* NSManageObjectModel+Utility.swift */; };
 		CD11F28D211F062F0018AFC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD11F28C211F062F0018AFC8 /* AppDelegate.swift */; };
 		CD11F28F211F062F0018AFC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD11F28E211F062F0018AFC8 /* ViewController.swift */; };
 		CD11F292211F062F0018AFC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD11F290211F062F0018AFC8 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		2A2753482237B4B50014D263 /* NSPersistentContainer+SQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPersistentContainer+SQLite.swift"; sourceTree = "<group>"; };
+		CD0FDF0322381E0100320448 /* NSManageObjectModel+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManageObjectModel+Utility.swift"; sourceTree = "<group>"; };
 		CD11F289211F062F0018AFC8 /* SRCoreDataLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SRCoreDataLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD11F28C211F062F0018AFC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD11F28E211F062F0018AFC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 		CD4CAE72211F60F20076BC6D /* NSManageObject+Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CD0FDF0322381E0100320448 /* NSManageObjectModel+Utility.swift */,
 				CDCC394B212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift */,
 				CDCC3947212DE37300091A75 /* NSPersistentStoreCoordinator+AsyncHelpers.swift */,
 				CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */,
@@ -351,6 +354,7 @@
 				CD1B17AB2129899E0072DF1A /* UserDB+CoreDataProperties.swift in Sources */,
 				CDCC394C212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift in Sources */,
 				CD1B17AA2129899E0072DF1A /* UserDB+CoreDataClass.swift in Sources */,
+				CD0FDF0422381E0200320448 /* NSManageObjectModel+Utility.swift in Sources */,
 				CD4CAE77211F61120076BC6D /* NSManagedObjectContext+Save.swift in Sources */,
 				CD4CAE63211F3F400076BC6D /* SRCoreDataStackManager.swift in Sources */,
 				CD1AB8BB21244F38002B62C2 /* SRCoreDataMigrationPolicy.swift in Sources */,
