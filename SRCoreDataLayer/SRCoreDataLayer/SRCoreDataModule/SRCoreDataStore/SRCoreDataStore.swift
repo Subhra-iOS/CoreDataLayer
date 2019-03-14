@@ -34,7 +34,7 @@ public class SRCoreDataStore : NSObject {
 	}
 	
 	public func fetchMainContext() -> NSManagedObjectContext{
-		
+		print("\(String(describing: self.dataStack))")
 		return self.dataStack.mainQueueContext
 	}
 	

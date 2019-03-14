@@ -35,7 +35,7 @@ final public class SRCoreDataStackManager : NSObject {
 	public static func createSQLiteStack(modelName: String,
 										 in bundle: Bundle = Bundle.main,
 										 at desiredStoreURL: URL? = nil,
-										 persistentStoreOptions: [AnyHashable : Any]? = NSPersistentContainer.stockSQLiteStoreOptions,
+										 persistentStoreOptions: [AnyHashable : Any]? = NSPersistentStoreCoordinator.stockSQLiteStoreOptions,
 										 on callbackQueue: DispatchQueue? = nil,
 										 callback: @escaping SetupCallback) {
 		
@@ -50,7 +50,7 @@ final public class SRCoreDataStackManager : NSObject {
 		
 		if self.isMigrationRequired(modelName){
 			
-			storeMigrationOption = NSPersistentContainer.stockSQLiteStoreMigrationOptions
+			storeMigrationOption = NSPersistentStoreCoordinator.stockSQLiteStoreMigrationOptions
 			SRCoreDataStackManager.isMigrationTrue = true
 			
 		}else{
@@ -66,7 +66,7 @@ final public class SRCoreDataStackManager : NSObject {
 
 	public static func constructSQLiteStack(model: NSManagedObjectModel,
 											at desiredStoreURL: URL? = nil,
-											persistentStoreOptions: [AnyHashable : Any]? = NSPersistentContainer.stockSQLiteStoreOptions,
+											persistentStoreOptions: [AnyHashable : Any]? = NSPersistentStoreCoordinator.stockSQLiteStoreOptions,
 											on callbackQueue: DispatchQueue? = nil,
 											callback: @escaping SetupCallback) {
 		
@@ -82,7 +82,7 @@ final public class SRCoreDataStackManager : NSObject {
 		let backgroundQueue = DispatchQueue.global(qos: .background)
 		let callbackQueue: DispatchQueue = callbackQueue ?? backgroundQueue
         
-		NSPersistentContainer.setUpSQLiteContainer(model, storeFileURL: storeFileURL,persistentStoreOptions: persistentStoreOptions as? [String : Any]) { contanierResult in
+		NSPersistentStoreCoordinator.setUpSQLiteContainer(model, storeFileURL: storeFileURL,persistentStoreOptions: persistentStoreOptions as? [String : Any]) { contanierResult in
 				switch contanierResult {
 				case .success(let container):
 					let stack = SRCoreDataStackManager(model:model,
@@ -113,18 +113,25 @@ final public class SRCoreDataStackManager : NSObject {
 	}
 	
 	fileprivate let storeType: StoreType
-	var persistentContainer: NSPersistentContainer!
+	//var persistentContainer: NSPersistentContainer!
+    lazy var persistentContainer : NSPersistentContainer! = {
+        let persistentContainer = NSPersistentContainer(name: DBStore.dataStoreName)
+        let description = persistentContainer.persistentStoreDescriptions.first
+        print("\(String(describing: description))")
+        
+        return persistentContainer
+    }()
+    
 	
-	fileprivate var persistentStoreContainer: NSPersistentContainer {
-		didSet {
-			privateQueueContext = constructPersistingContext()
-			privateQueueContext.persistentStoreCoordinator = persistentStoreContainer.persistentStoreCoordinator
-			mainQueueContext = constructMainQueueContext()
-			
-		}
-	}
-	
-	
+    fileprivate  var persistentStoreContainer: NSPersistentContainer {
+        didSet {
+            privateQueueContext = constructPersistingContext()
+            privateQueueContext.persistentStoreCoordinator = persistentStoreContainer.persistentStoreCoordinator
+            mainQueueContext = constructMainQueueContext()
+
+        }
+    }
+    
 	private convenience init(modelName: String, bundle: Bundle, persistentStoreCoordinator: NSPersistentContainer, storeType: StoreType,storeUrl : URL?) {
 		
 		let model = bundle.managedObjectModel(name: modelName)
@@ -139,14 +146,14 @@ final public class SRCoreDataStackManager : NSObject {
 		SRCoreDataStackManager.managedObjectModel = model
 		SRCoreDataStackManager.dataStoreURL = storeURL
 		
-		privateQueueContext.persistentStoreCoordinator = self.persistentStoreContainer.persistentStoreCoordinator
+		//privateQueueContext.persistentStoreCoordinator = persistentStoreContainer.persistentStoreCoordinator
 	}
 
 	private  init(storeType : StoreType , container : NSPersistentContainer) {
-		self.storeType = storeType
-		self.persistentStoreContainer = container
-		super.init()
-
+        
+        self.storeType = storeType
+        self.persistentStoreContainer = container
+        super.init()
 	}
 	
 	// MARK: - Core Data stack
@@ -190,12 +197,14 @@ final public class SRCoreDataStackManager : NSObject {
 		return self.constructPersistingContext()
 	}()
 	private func constructPersistingContext() -> NSManagedObjectContext {
+        
 		let managedObjectContext = self.persistentContainer.newBackgroundContext()
 		managedObjectContext.mergePolicy = NSMergePolicy(merge: .mergeByPropertyStoreTrumpMergePolicyType)
 		managedObjectContext.name = "Primary Private Queue Context (Persisting Context)"
 		return managedObjectContext
 	}
-	
+    
+    
 	/**
 	The main queue context for any work that will be performed on the main queue.
 	Its parent context is the primary private queue context that persist the data to disk.

@@ -8,7 +8,7 @@
 
 import CoreData
 
-public extension NSPersistentContainer {
+/*public extension NSPersistentContainer {
     
     /**
      Default persistent store options used for the `SQLite` backed `NSPersistentStoreCoordinator`
@@ -77,4 +77,4 @@ public extension NSPersistentContainer {
         }
         
     }
-}
+}*/

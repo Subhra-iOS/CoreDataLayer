@@ -12,42 +12,49 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-
+    var navigationController : UINavigationController?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		
+        
+        let rootVC : RootViewController = RootViewController(nibName: "RootViewController", bundle: nil)
+        self.navigationController = UINavigationController(rootViewController: rootVC)
+      
+        
 		let dataStore : SRCoreDataStore = SRCoreDataStore.sharedStore
 		SRCoreDataStackManager.createSQLiteStack(modelName: DBStore.dataStoreName) { [unowned self, weak weakStore = dataStore] result in
 			switch result {
-			case .success(let stack):
-				
-				print("Success in DataBase Setup \(stack)")
-				
-				weakStore?.setDataStack(stack: stack)
-				
-				var  dbError : NSError?
-				if SRCoreDataStackManager.isMigrationTrue {
-					
-					let success : Bool = weakStore?.migrate(&dbError) ?? false
-					
-					print("Success : \(success)")
-					print("MigrationError : \(String(describing: dbError))")
-					
-				}
-				
-				// Note don't actually use dispatch_after
-				// Arbitrary 2 second delay to illustrate an async setup.
-				// dispatch_async(dispatch_get_main_queue()) {} should be used in production
-				DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // just for example purposes
-						self.presentMainUI()
-				}
-				
-			case .failure(let error):
-				assertionFailure("\(error)")
+                case .success(let stack):
+                    
+                    print("Success in DataBase Setup \(stack)")
+                    
+                    weakStore?.setDataStack(stack: stack)
+                    
+                    var  dbError : NSError?
+                    if SRCoreDataStackManager.isMigrationTrue {
+                        
+                        let success : Bool = weakStore?.migrate(&dbError) ?? false
+                        
+                        print("Success : \(success)")
+                        print("MigrationError : \(String(describing: dbError))")
+                        
+                    }
+                    
+                    // Note don't actually use dispatch_after
+                    // Arbitrary 2 second delay to illustrate an async setup.
+                    // dispatch_async(dispatch_get_main_queue()) {} should be used in production
+                    DispatchQueue.main.async { [weak self] in // just for example purposes
+                        
+                            self?.window?.rootViewController = self?.navigationController
+                            self?.window?.makeKeyAndVisible()
+                        
+                    }
+                
+                case .failure(let error):
+                    assertionFailure("\(error)")
 			}
 		}
-		
 		
 		return true
 	}
@@ -76,11 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		 let mainContext = SRCoreDataStore.sharedStore.fetchMainContext()
 		mainContext.saveContextToStore()
 	}
-	
-	func presentMainUI() {
-		let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-		window?.rootViewController = mainStoryboard.instantiateInitialViewController()
-	}
+
 
 }
 

@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2A2753492237B4B50014D263 /* NSPersistentContainer+SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2753482237B4B50014D263 /* NSPersistentContainer+SQLite.swift */; };
+		2A2753502237F2640014D263 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A27534E2237F2640014D263 /* RootViewController.swift */; };
+		2A2753512237F2640014D263 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A27534F2237F2640014D263 /* RootViewController.xib */; };
 		CD11F28D211F062F0018AFC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD11F28C211F062F0018AFC8 /* AppDelegate.swift */; };
-		CD11F28F211F062F0018AFC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD11F28E211F062F0018AFC8 /* ViewController.swift */; };
-		CD11F292211F062F0018AFC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD11F290211F062F0018AFC8 /* Main.storyboard */; };
 		CD11F295211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD11F293211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodeld */; };
 		CD11F297211F063A0018AFC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD11F296211F063A0018AFC8 /* Assets.xcassets */; };
-		CD11F29A211F063A0018AFC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD11F298211F063A0018AFC8 /* LaunchScreen.storyboard */; };
 		CD11F2A5211F063B0018AFC8 /* SRCoreDataLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD11F2A4211F063B0018AFC8 /* SRCoreDataLayerTests.swift */; };
 		CD1AB8B7212443D8002B62C2 /* SRCoreDataMigrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1AB8B4212443D8002B62C2 /* SRCoreDataMigrationModel.swift */; };
 		CD1AB8B8212443D8002B62C2 /* SRCoreDataMigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1AB8B5212443D8002B62C2 /* SRCoreDataMigrationManager.swift */; };
@@ -45,13 +44,12 @@
 
 /* Begin PBXFileReference section */
 		2A2753482237B4B50014D263 /* NSPersistentContainer+SQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPersistentContainer+SQLite.swift"; sourceTree = "<group>"; };
+		2A27534E2237F2640014D263 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		2A27534F2237F2640014D263 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		CD11F289211F062F0018AFC8 /* SRCoreDataLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SRCoreDataLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD11F28C211F062F0018AFC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD11F28E211F062F0018AFC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CD11F291211F062F0018AFC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD11F294211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SRCoreDataLayer.xcdatamodel; sourceTree = "<group>"; };
 		CD11F296211F063A0018AFC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CD11F299211F063A0018AFC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD11F29B211F063A0018AFC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD11F2A0211F063B0018AFC8 /* SRCoreDataLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRCoreDataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD11F2A4211F063B0018AFC8 /* SRCoreDataLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCoreDataLayerTests.swift; sourceTree = "<group>"; };
@@ -164,11 +162,10 @@
 			isa = PBXGroup;
 			children = (
 				CD11F28C211F062F0018AFC8 /* AppDelegate.swift */,
-				CD11F28E211F062F0018AFC8 /* ViewController.swift */,
-				CD11F290211F062F0018AFC8 /* Main.storyboard */,
+				2A27534E2237F2640014D263 /* RootViewController.swift */,
+				2A27534F2237F2640014D263 /* RootViewController.xib */,
 				CD11F296211F063A0018AFC8 /* Assets.xcassets */,
 				CD11F29B211F063A0018AFC8 /* Info.plist */,
-				CD11F298211F063A0018AFC8 /* LaunchScreen.storyboard */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -315,9 +312,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD11F29A211F063A0018AFC8 /* LaunchScreen.storyboard in Resources */,
+				2A2753512237F2640014D263 /* RootViewController.xib in Resources */,
 				CD11F297211F063A0018AFC8 /* Assets.xcassets in Resources */,
-				CD11F292211F062F0018AFC8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,8 +343,8 @@
 				CD4CAE76211F61120076BC6D /* NSManagedObject+Fetch.swift in Sources */,
 				2A2753492237B4B50014D263 /* NSPersistentContainer+SQLite.swift in Sources */,
 				CD1AB8B9212443D8002B62C2 /* SRCoreDataMigrationStep.swift in Sources */,
-				CD11F28F211F062F0018AFC8 /* ViewController.swift in Sources */,
 				CD1B17AB2129899E0072DF1A /* UserDB+CoreDataProperties.swift in Sources */,
+				2A2753502237F2640014D263 /* RootViewController.swift in Sources */,
 				CDCC394C212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift in Sources */,
 				CD1B17AA2129899E0072DF1A /* UserDB+CoreDataClass.swift in Sources */,
 				CD4CAE77211F61120076BC6D /* NSManagedObjectContext+Save.swift in Sources */,
@@ -375,25 +371,6 @@
 			targetProxy = CD11F2A1211F063B0018AFC8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		CD11F290211F062F0018AFC8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CD11F291211F062F0018AFC8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		CD11F298211F063A0018AFC8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CD11F299211F063A0018AFC8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CD11F2A7211F063B0018AFC8 /* Debug */ = {
@@ -447,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -501,7 +478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -517,7 +494,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = BJ3HU6DR5Z;
 				INFOPLIST_FILE = SRCoreDataLayer/Application/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,7 +515,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = BJ3HU6DR5Z;
 				INFOPLIST_FILE = SRCoreDataLayer/Application/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

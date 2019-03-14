@@ -78,7 +78,7 @@ public extension NSPersistentStoreCoordinator {
 	- parameter completion: A completion closure with a `CoordinatorResult` that
 	will be executed following the `NSPersistentStore` being added to the `NSPersistentStoreCoordinator`.
 	*/
-	@available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use NSPersistentContainer")
+	//@available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use NSPersistentContainer")
 
 	public class func setUpSQLiteContainer(_ managedObjectModel: NSManagedObjectModel,
 												   storeFileURL: URL,

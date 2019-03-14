@@ -232,7 +232,7 @@ class SRMigrationManager : NSObject {
 	override func  observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
 		
 		if (keyPath == "migrationProgress") {
-			print("progress: \((object as AnyObject).migrationProgress)")
+            print("progress: \(String(describing: (object as AnyObject).migrationProgress))")
 			
 			let migrationManager : NSMigrationManager? = object as? NSMigrationManager
 			
