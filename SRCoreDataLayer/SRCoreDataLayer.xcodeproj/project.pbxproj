@@ -23,6 +23,7 @@
 		CD1AB8C421247E92002B62C2 /* SRCoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1AB8C321247E92002B62C2 /* SRCoreDataStore.swift */; };
 		CD1B17AA2129899E0072DF1A /* UserDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1B17A82129899E0072DF1A /* UserDB+CoreDataClass.swift */; };
 		CD1B17AB2129899E0072DF1A /* UserDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1B17A92129899E0072DF1A /* UserDB+CoreDataProperties.swift */; };
+		CD1F197A223ADB6600D16E1D /* NSManageObjectModel+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F1979223ADB6600D16E1D /* NSManageObjectModel+Utility.swift */; };
 		CD4CAE63211F3F400076BC6D /* SRCoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE62211F3F400076BC6D /* SRCoreDataStackManager.swift */; };
 		CD4CAE76211F61120076BC6D /* NSManagedObject+Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */; };
 		CD4CAE77211F61120076BC6D /* NSManagedObjectContext+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4CAE74211F61110076BC6D /* NSManagedObjectContext+Save.swift */; };
@@ -64,6 +65,7 @@
 		CD1AB8C321247E92002B62C2 /* SRCoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCoreDataStore.swift; sourceTree = "<group>"; };
 		CD1B17A82129899E0072DF1A /* UserDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDB+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CD1B17A92129899E0072DF1A /* UserDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CD1F1979223ADB6600D16E1D /* NSManageObjectModel+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManageObjectModel+Utility.swift"; sourceTree = "<group>"; };
 		CD4CAE62211F3F400076BC6D /* SRCoreDataStackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCoreDataStackManager.swift; sourceTree = "<group>"; };
 		CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Fetch.swift"; sourceTree = "<group>"; };
 		CD4CAE74211F61110076BC6D /* NSManagedObjectContext+Save.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Save.swift"; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		CD4CAE72211F60F20076BC6D /* NSManageObject+Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CD1F1979223ADB6600D16E1D /* NSManageObjectModel+Utility.swift */,
 				CDCC394B212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift */,
 				CDCC3947212DE37300091A75 /* NSPersistentStoreCoordinator+AsyncHelpers.swift */,
 				CD4CAE73211F61110076BC6D /* NSManagedObject+Fetch.swift */,
@@ -347,6 +350,7 @@
 				2A2753502237F2640014D263 /* RootViewController.swift in Sources */,
 				CDCC394C212DE53F00091A75 /* Bundle+CoreDataModelHelper.swift in Sources */,
 				CD1B17AA2129899E0072DF1A /* UserDB+CoreDataClass.swift in Sources */,
+				CD1F197A223ADB6600D16E1D /* NSManageObjectModel+Utility.swift in Sources */,
 				CD4CAE77211F61120076BC6D /* NSManagedObjectContext+Save.swift in Sources */,
 				CD4CAE63211F3F400076BC6D /* SRCoreDataStackManager.swift in Sources */,
 				CD1AB8BB21244F38002B62C2 /* SRCoreDataMigrationPolicy.swift in Sources */,
