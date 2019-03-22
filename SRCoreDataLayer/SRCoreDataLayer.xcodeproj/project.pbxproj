@@ -10,6 +10,7 @@
 		2A2753492237B4B50014D263 /* NSPersistentContainer+SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2753482237B4B50014D263 /* NSPersistentContainer+SQLite.swift */; };
 		2A2753502237F2640014D263 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A27534E2237F2640014D263 /* RootViewController.swift */; };
 		2A2753512237F2640014D263 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A27534F2237F2640014D263 /* RootViewController.xib */; };
+		2AB91B152244C508004ADBB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AB91B142244C508004ADBB3 /* LaunchScreen.storyboard */; };
 		CD11F28D211F062F0018AFC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD11F28C211F062F0018AFC8 /* AppDelegate.swift */; };
 		CD11F295211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD11F293211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodeld */; };
 		CD11F297211F063A0018AFC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD11F296211F063A0018AFC8 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		2A2753482237B4B50014D263 /* NSPersistentContainer+SQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPersistentContainer+SQLite.swift"; sourceTree = "<group>"; };
 		2A27534E2237F2640014D263 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		2A27534F2237F2640014D263 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		2AB91B142244C508004ADBB3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD11F289211F062F0018AFC8 /* SRCoreDataLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SRCoreDataLayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD11F28C211F062F0018AFC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD11F294211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SRCoreDataLayer.xcdatamodel; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		CD4CAE5C211F3D8B0076BC6D /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				2AB91B142244C508004ADBB3 /* LaunchScreen.storyboard */,
 				CD11F28C211F062F0018AFC8 /* AppDelegate.swift */,
 				2A27534E2237F2640014D263 /* RootViewController.swift */,
 				2A27534F2237F2640014D263 /* RootViewController.xib */,
@@ -316,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A2753512237F2640014D263 /* RootViewController.xib in Resources */,
+				2AB91B152244C508004ADBB3 /* LaunchScreen.storyboard in Resources */,
 				CD11F297211F063A0018AFC8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

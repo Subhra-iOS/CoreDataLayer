@@ -23,7 +23,7 @@ class RootViewController: UIViewController {
             
         }
         
-        /*DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [weak self] in
+        /*DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
          
          self?.fetchUserWith("123")
          

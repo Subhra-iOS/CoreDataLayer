@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let rootVC : RootViewController = RootViewController(nibName: "RootViewController", bundle: nil)
         self.navigationController = UINavigationController(rootViewController: rootVC)
-      
+       self.window = UIWindow(frame: UIScreen.main.bounds)
+      self.window?.backgroundColor = UIColor.white
         
 		let dataStore : SRCoreDataStore = SRCoreDataStore.sharedStore
 		SRCoreDataStackManager.createSQLiteStack(modelName: DBStore.dataStoreName) { [unowned self, weak weakStore = dataStore] result in
@@ -45,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     // Arbitrary 2 second delay to illustrate an async setup.
                     // dispatch_async(dispatch_get_main_queue()) {} should be used in production
                     DispatchQueue.main.async { [weak self] in // just for example purposes
+                        
                         
                             self?.window?.rootViewController = self?.navigationController
                             self?.window?.makeKeyAndVisible()

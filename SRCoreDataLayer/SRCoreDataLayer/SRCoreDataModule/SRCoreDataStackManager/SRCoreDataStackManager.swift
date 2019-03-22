@@ -102,7 +102,12 @@ final public class SRCoreDataStackManager : NSObject {
 	private static func createDirectoryIfNecessary(_ url: URL) throws {
 		let fileManager = FileManager.default
 		let directory = url.deletingLastPathComponent()
-		try fileManager.createDirectory(at: directory, withIntermediateDirectories: true, attributes: nil)
+        do{
+            
+            try fileManager.createDirectory(at: directory, withIntermediateDirectories: true, attributes: nil)
+        }catch{
+            print("Fails to create store.")
+        }
 	}
 	
 	// MARK: - Private Implementation
