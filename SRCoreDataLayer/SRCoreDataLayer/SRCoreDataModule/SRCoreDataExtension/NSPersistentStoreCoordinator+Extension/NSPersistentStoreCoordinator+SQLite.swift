@@ -55,13 +55,13 @@ public extension NSPersistentStoreCoordinator {
 	/**
 	Default persistent store options used for the `SQLite` backed `NSPersistentStoreCoordinator`
 	*/
-	public static var stockSQLiteStoreOptions: [String : Any] = [
+    static var stockSQLiteStoreOptions: [String : Any] = [
 		NSMigratePersistentStoresAutomaticallyOption: true,
 		NSInferMappingModelAutomaticallyOption: true,
 		NSSQLitePragmasOption: ["journal_mode": "WAL"]
 	]
 
-	public static var stockSQLiteStoreMigrationOptions: [String : Any] {
+    static var stockSQLiteStoreMigrationOptions: [String : Any] {
 		return [
 			NSMigratePersistentStoresAutomaticallyOption: true,
 			NSInferMappingModelAutomaticallyOption: true,
@@ -80,7 +80,7 @@ public extension NSPersistentStoreCoordinator {
 	*/
 	//@available(iOS, introduced: 8.0, deprecated: 10.0, message: "Use NSPersistentContainer")
 
-	public class func setUpSQLiteContainer(_ managedObjectModel: NSManagedObjectModel,
+    class func setUpSQLiteContainer(_ managedObjectModel: NSManagedObjectModel,
 												   storeFileURL: URL,
 												   persistentStoreOptions: [String : Any]? = NSPersistentStoreCoordinator.stockSQLiteStoreOptions,completion: @escaping (SRCoreDataStackManager.CoordinatorResult) -> Void) {
 		
@@ -101,11 +101,12 @@ public extension NSPersistentStoreCoordinator {
 		persistentStoreDescription.shouldMigrateStoreAutomatically = storeOptions[NSMigratePersistentStoresAutomaticallyOption] as! Bool
 		persistentStoreDescription.shouldInferMappingModelAutomatically = storeOptions[NSInferMappingModelAutomaticallyOption] as! Bool
 		persistentStoreDescription.setOption(storeOptions[NSSQLitePragmasOption] as? NSObject, forKey: NSSQLitePragmasOption)
+        persistentStoreDescription.shouldMigrateStoreAutomatically = true
 		
 		let persistentContainer = NSPersistentContainer(name: DBStore.dataStoreName, managedObjectModel: managedObjectModel)
 		let description = persistentContainer.persistentStoreDescriptions.first
 		print("\(String(describing: description))")
-		
+		persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
 		persistentContainer.persistentStoreDescriptions = [persistentStoreDescription]
 		persistentContainer.loadPersistentStores { (persistentStoreDescription, error) in
 			

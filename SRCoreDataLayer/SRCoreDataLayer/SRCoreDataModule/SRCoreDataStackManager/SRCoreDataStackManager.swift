@@ -19,6 +19,7 @@ final public class SRCoreDataStackManager : NSObject {
 	
 	fileprivate static var managedObjectModel: NSManagedObjectModel?
 	fileprivate let saveBubbleDispatchGroup = DispatchGroup()
+    fileprivate var persistentContainer : NSPersistentContainer!
 	
 	/// SRCoreDataStackManager specific ErrorTypes
 	public enum Error: Swift.Error {
@@ -119,20 +120,21 @@ final public class SRCoreDataStackManager : NSObject {
 	
 	fileprivate let storeType: StoreType
 	//var persistentContainer: NSPersistentContainer!
-    lazy var persistentContainer : NSPersistentContainer! = {
-        let persistentContainer = NSPersistentContainer(name: DBStore.dataStoreName)
-        let description = persistentContainer.persistentStoreDescriptions.first
-        print("\(String(describing: description))")
-        
-        return persistentContainer
-    }()
+//    lazy var persistentContainer : NSPersistentContainer! = {
+//        let persistentContainer = NSPersistentContainer(name: DBStore.dataStoreName , managedObjectModel: SRCoreDataStackManager.managedObjectModel!)
+//        let description = persistentContainer.persistentStoreDescriptions.first
+//        print("\(String(describing: description))")
+//
+//        return persistentContainer
+//    }()
     
 	
     fileprivate  var persistentStoreContainer: NSPersistentContainer {
         didSet {
-            privateQueueContext = constructPersistingContext()
-            privateQueueContext.persistentStoreCoordinator = persistentStoreContainer.persistentStoreCoordinator
+            //privateQueueContext = constructPersistingContext()
+           // privateQueueContext.persistentStoreCoordinator = persistentStoreContainer.persistentStoreCoordinator
             mainQueueContext = constructMainQueueContext()
+             mainQueueContext.persistentStoreCoordinator = persistentStoreContainer.persistentStoreCoordinator
 
         }
     }
@@ -148,10 +150,12 @@ final public class SRCoreDataStackManager : NSObject {
 		
 		self.init(storeType: storeType, container: persistentStoreContainer)
 		
+        self.persistentContainer = persistentStoreContainer
 		SRCoreDataStackManager.managedObjectModel = model
 		SRCoreDataStackManager.dataStoreURL = storeURL
 		
-		//privateQueueContext.persistentStoreCoordinator = persistentStoreContainer.persistentStoreCoordinator
+        mainQueueContext = constructMainQueueContext()
+        mainQueueContext.persistentStoreCoordinator = persistentStoreContainer.persistentStoreCoordinator
 	}
 
 	private  init(storeType : StoreType , container : NSPersistentContainer) {
@@ -223,7 +227,10 @@ final public class SRCoreDataStackManager : NSObject {
 		let setup: () -> Void = {
 			managedObjectContext = self.persistentContainer.viewContext
 			managedObjectContext.mergePolicy = NSMergePolicy(merge: .mergeByPropertyStoreTrumpMergePolicyType)
-			managedObjectContext.parent = self.privateQueueContext
+            managedObjectContext.automaticallyMergesChangesFromParent = true
+            print("\(self.persistentStoreContainer.persistentStoreCoordinator)")
+            managedObjectContext.persistentStoreCoordinator = self.persistentStoreContainer.persistentStoreCoordinator
+			//managedObjectContext.parent = self.privateQueueContext
 			
 			NotificationCenter.default.addObserver(self,
 												   selector: #selector(SRCoreDataStackManager.stackMemberContextDidSaveNotification(_:)),
@@ -324,7 +331,7 @@ public extension SRCoreDataStackManager{
 public extension SRCoreDataStackManager{
 	
 	/// Result containing either an instance of `NSPersistentStoreCoordinator` or `ErrorType`
-	public enum CoordinatorResult {
+    enum CoordinatorResult {
 		/// A success case with associated `NSPersistentStoreCoordinator` instance
 		//case success(NSPersistentStoreCoordinator)
 		case success(NSPersistentContainer)
@@ -332,28 +339,28 @@ public extension SRCoreDataStackManager{
 		case failure(Swift.Error)
 	}
 	/// Result containing either an instance of `SRCoreDataStack` or `ErrorType`
-	public enum SetupResult {
+    enum SetupResult {
 		/// A success case with associated `SRCoreDataStack` instance
 		case success(SRCoreDataStackManager)
 		/// A failure case with associated `ErrorType` instance
 		case failure(Swift.Error)
 	}
 	/// Result of void representing `success` or an instance of `ErrorType`
-	public enum SuccessResult {
+    enum SuccessResult {
 		/// A success case
 		case success
 		/// A failure case with associated ErrorType instance
 		case failure(Swift.Error)
 	}
 	
-	public typealias SaveResult = SuccessResult
-	public typealias ResetResult = SuccessResult
+    typealias SaveResult = SuccessResult
+    typealias ResetResult = SuccessResult
 
 }
 
 fileprivate extension SRCoreDataStackManager {
 	
-	@objc fileprivate func stackMemberContextDidSaveNotification(_ notification: Notification) {
+    @objc func stackMemberContextDidSaveNotification(_ notification: Notification) {
 		guard let notificationMOC = notification.object as? NSManagedObjectContext else {
 			assertionFailure("Notification posted from an object other than an NSManagedObjectContext")
 			return
@@ -370,7 +377,7 @@ fileprivate extension SRCoreDataStackManager {
 	
 }
 fileprivate extension SRCoreDataStackManager {
-	fileprivate static var documentsDirectory: URL? {
+    static var documentsDirectory: URL? {
 		let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 		return urls.first
 	}
@@ -390,7 +397,7 @@ public extension SRCoreDataStackManager {
 	
 	- returns: `NSManagedObjectContext` The new worker context.
 	*/
-	public func newChildContext(type: NSManagedObjectContextConcurrencyType = .privateQueueConcurrencyType,
+    func newChildContext(type: NSManagedObjectContextConcurrencyType = .privateQueueConcurrencyType,
 								name: String? = "Main Queue Context Child") -> NSManagedObjectContext {
 		if type == .mainQueueConcurrencyType && !Thread.isMainThread {
 			preconditionFailure("Main thread MOCs must be created on the main thread")
@@ -398,6 +405,7 @@ public extension SRCoreDataStackManager {
 		
 		let moc = self.persistentContainer.newBackgroundContext()
 		moc.mergePolicy = NSMergePolicy(merge: .mergeByPropertyStoreTrumpMergePolicyType)
+        moc.automaticallyMergesChangesFromParent = true
 		moc.parent = mainQueueContext
 		moc.name = name
 		
@@ -435,7 +443,7 @@ public  extension  SRCoreDataStackManager{
 	
 	
 	//MARK:---------Check Migation is Needed or not--------
-	public static func  isMigrationRequired(_ modelName : String) -> Bool{
+    static func  isMigrationRequired(_ modelName : String) -> Bool{
 		
 		// Check if we need to migrate
 		var sourceMetaData : [String : Any]?

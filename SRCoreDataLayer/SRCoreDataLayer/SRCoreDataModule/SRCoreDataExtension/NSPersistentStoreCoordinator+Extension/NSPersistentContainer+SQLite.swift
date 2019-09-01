@@ -8,18 +8,18 @@
 
 import CoreData
 
-/*public extension NSPersistentContainer {
+public extension NSPersistentContainer {
     
     /**
      Default persistent store options used for the `SQLite` backed `NSPersistentStoreCoordinator`
      */
-    public static var stockSQLiteStoreOptions: [String : Any] = [
+    static var stockSQLiteStoreOptions: [String : Any] = [
         NSMigratePersistentStoresAutomaticallyOption: true,
         NSInferMappingModelAutomaticallyOption: true,
         NSSQLitePragmasOption: ["journal_mode": "WAL"]
     ]
     
-    public static var stockSQLiteStoreMigrationOptions: [String : Any] {
+    static var stockSQLiteStoreMigrationOptions: [String : Any] {
         return [
             NSMigratePersistentStoresAutomaticallyOption: true,
             NSInferMappingModelAutomaticallyOption: true,
@@ -37,7 +37,7 @@ import CoreData
      will be executed following the `NSPersistentStore` being added to the `NSPersistentStoreCoordinator`.
      */
     
-    public class func setUpSQLiteContainer(_ managedObjectModel: NSManagedObjectModel,
+    class func setUpSQLiteContainer(_ managedObjectModel: NSManagedObjectModel,
                                            storeFileURL: URL,
                                            persistentStoreOptions: [String : Any]? = NSPersistentContainer.stockSQLiteStoreOptions,completion: @escaping (SRCoreDataStackManager.CoordinatorResult) -> Void) {
         
@@ -77,4 +77,4 @@ import CoreData
         }
         
     }
-}*/
+}
