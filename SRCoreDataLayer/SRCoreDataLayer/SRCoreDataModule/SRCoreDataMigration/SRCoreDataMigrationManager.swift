@@ -32,7 +32,7 @@ class SRCoreDataMigrationManager {
         guard let metadata = NSPersistentStoreCoordinator.metadata(at: storeURL) else {
             return false
         }
-
+        
         return !currentMigrationModel.managedObjectModel().isConfiguration(withName: nil, compatibleWithStoreMetadata: metadata)
     }
     

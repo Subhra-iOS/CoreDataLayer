@@ -49,9 +49,10 @@ final public class SRCoreDataStackManager : NSObject {
 		
 		var storeMigrationOption : [AnyHashable : Any]?
 		
-		if self.isMigrationRequired(modelName){
-			
-			storeMigrationOption = NSPersistentStoreCoordinator.stockSQLiteStoreMigrationOptions
+        let migrationManager : SRCoreDataMigrationManager = SRCoreDataMigrationManager()
+        
+		if migrationManager.requiresMigration(at: storeFileURL){ //self.isMigrationRequired(modelName)
+            storeMigrationOption = NSPersistentStoreCoordinator.stockSQLiteStoreMigrationOptions
 			SRCoreDataStackManager.isMigrationTrue = true
 			
 		}else{
@@ -83,7 +84,7 @@ final public class SRCoreDataStackManager : NSObject {
 		let backgroundQueue = DispatchQueue.global(qos: .background)
 		let callbackQueue: DispatchQueue = callbackQueue ?? backgroundQueue
         
-		NSPersistentStoreCoordinator.setUpSQLiteContainer(model, storeFileURL: storeFileURL,persistentStoreOptions: persistentStoreOptions as? [String : Any]) { contanierResult in
+		NSPersistentContainer.setUpSQLiteContainer(model, storeFileURL: storeFileURL,persistentStoreOptions: persistentStoreOptions as? [String : Any]) { contanierResult in
 				switch contanierResult {
 				case .success(let container):
 					let stack = SRCoreDataStackManager(model:model,
@@ -154,8 +155,8 @@ final public class SRCoreDataStackManager : NSObject {
 		SRCoreDataStackManager.managedObjectModel = model
 		SRCoreDataStackManager.dataStoreURL = storeURL
 		
-        mainQueueContext = constructMainQueueContext()
-        mainQueueContext.persistentStoreCoordinator = persistentStoreContainer.persistentStoreCoordinator
+       // mainQueueContext = constructMainQueueContext()
+        //mainQueueContext.persistentStoreCoordinator = persistentStoreContainer.persistentStoreCoordinator
 	}
 
 	private  init(storeType : StoreType , container : NSPersistentContainer) {
@@ -227,9 +228,9 @@ final public class SRCoreDataStackManager : NSObject {
 		let setup: () -> Void = {
 			managedObjectContext = self.persistentContainer.viewContext
 			managedObjectContext.mergePolicy = NSMergePolicy(merge: .mergeByPropertyStoreTrumpMergePolicyType)
-            managedObjectContext.automaticallyMergesChangesFromParent = true
-            print("\(self.persistentStoreContainer.persistentStoreCoordinator)")
-            managedObjectContext.persistentStoreCoordinator = self.persistentStoreContainer.persistentStoreCoordinator
+           // managedObjectContext.automaticallyMergesChangesFromParent = true
+            print("\(String(describing: managedObjectContext.persistentStoreCoordinator))")
+           // managedObjectContext.persistentStoreCoordinator = self.persistentStoreContainer.persistentStoreCoordinator
 			//managedObjectContext.parent = self.privateQueueContext
 			
 			NotificationCenter.default.addObserver(self,
@@ -406,7 +407,8 @@ public extension SRCoreDataStackManager {
 		let moc = self.persistentContainer.newBackgroundContext()
 		moc.mergePolicy = NSMergePolicy(merge: .mergeByPropertyStoreTrumpMergePolicyType)
         moc.automaticallyMergesChangesFromParent = true
-		moc.parent = mainQueueContext
+		//moc.parent = mainQueueContext
+       // print("\(String(describing: moc.parent))")
 		moc.name = name
 		
 		NotificationCenter.default.addObserver(self,

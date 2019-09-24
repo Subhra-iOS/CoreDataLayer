@@ -23,11 +23,11 @@ class RootViewController: UIViewController {
             
         }
         
-        /*DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
-         
-         self?.fetchUserWith("123")
-         
-         }*/
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+//
+//         self?.fetchUserWith("123")
+//
+//         }
     }
     
     override func didReceiveMemoryWarning() {

@@ -618,7 +618,7 @@
 				CD1AB8BC21247329002B62C2 /* SRCoreDataLayer_V2.xcdatamodel */,
 				CD11F294211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodel */,
 			);
-			currentVersion = CD11F294211F062F0018AFC8 /* SRCoreDataLayer.xcdatamodel */;
+			currentVersion = CD1AB8BC21247329002B62C2 /* SRCoreDataLayer_V2.xcdatamodel */;
 			path = SRCoreDataLayer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
